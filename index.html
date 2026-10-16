@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b19">
+  <meta name="description" content="Portfolio of Vhelaphi George Maluleke, a self-taught junior data analyst building practical projects in Power BI, SQL, Excel and Python.">
+  <title>Vhelaphi George Maluleke | Junior Data Analyst</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #152320;
+      --muted: #40534e;
+      --navy: #101b19;
+      --navy-2: #192a26;
+      --blue: #087f74;
+      --cyan: #2dd4bf;
+      --paper: #f7faf9;
+      --white: #ffffff;
+      --line: #d4e2de;
+      --card-shadow: 0 18px 48px rgba(3, 18, 15, .08);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+    .skip-link { position: absolute; left: -999px; top: 0; background: white; color: var(--ink); padding: .8rem 1rem; z-index: 100; }
+    .skip-link:focus { left: 1rem; top: 1rem; }
+    .shell { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .site-header { position: sticky; z-index: 20; top: 0; background: rgba(245,247,251,.92); border-bottom: 1px solid rgba(226,232,241,.85); backdrop-filter: blur(16px); }
+    .nav-wrap { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 1.2rem; }
+    .brand { display: inline-flex; align-items: center; gap: .8rem; text-decoration: none; font-weight: 800; letter-spacing: -.035em; }
+    .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; color: var(--white); background: var(--navy); font-size: .9rem; letter-spacing: -.04em; box-shadow: 0 7px 18px rgba(16,28,50,.16); }
+    .brand-label { font-size: .95rem; line-height: 1.2; }
+    .brand-label small { display: block; color: var(--muted); font-size: .73rem; font-weight: 600; letter-spacing: .02em; margin-top: 3px; }
+    .nav-links { display: flex; align-items: center; gap: 1.55rem; }
+    .nav-links a { text-decoration: none; font-size: .88rem; font-weight: 700; color: #46536a; transition: color .2s ease; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links .nav-cta { background: var(--navy); color: white; padding: .63rem 1rem; border-radius: 999px; }
+    .nav-links .nav-cta:hover { background: var(--blue); color: white; }
+    .menu-toggle { display: none; border: 1px solid var(--line); background: white; width: 44px; height: 44px; border-radius: 13px; color: var(--ink); font: inherit; cursor: pointer; }
+
+    .hero { background: radial-gradient(ellipse at 86% 9%, rgba(71,120,237,.25), transparent 31%), radial-gradient(ellipse at 70% 98%, rgba(115,215,209,.12), transparent 28%), var(--navy); color: white; overflow: hidden; position: relative; }
+    .hero::after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid rgba(255,255,255,.07); border-radius: 50%; right: -190px; bottom: -235px; pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(320px,.85fr); align-items: center; gap: clamp(2.4rem, 6vw, 5.8rem); padding-block: clamp(4.4rem, 8vw, 7.3rem); position: relative; z-index: 1; }
+    .eyebrow { display: inline-flex; align-items: center; gap: .6rem; margin: 0 0 1.2rem; font-size: .76rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); }
+    .eyebrow::before { content: ""; width: 27px; height: 2px; background: currentColor; border-radius: 4px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 720px; margin-bottom: 1.2rem; font-size: clamp(2.7rem, 6.3vw, 5.1rem); line-height: 1.02; letter-spacing: -.065em; font-weight: 800; }
+    h1 .accent { color: var(--cyan); }
+    .hero-copy { max-width: 640px; color: #d6dfef; font-size: clamp(1.04rem, 1.6vw, 1.17rem); line-height: 1.8; margin-bottom: 1.7rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem; color: #b8c5dc; font-size: .9rem; margin: 0 0 1.8rem; }
+    .meta-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); }
+    .button-row { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 47px; padding: .72rem 1.1rem; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: .92rem; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--cyan); color: var(--navy); border: 1px solid var(--cyan); }
+    .button-primary:hover { background: #9be8e3; }
+    .button-ghost { background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.25); color: white; }
+    .button-ghost:hover { background: rgba(255,255,255,.1); }
+
+    .workflow-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13); border-radius: 26px; padding: 1.5rem; box-shadow: 0 25px 70px rgba(0,0,0,.14); backdrop-filter: blur(8px); transform: rotate(1deg); }
+    .workflow-card-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .workflow-card-head strong { font-size: 1rem; letter-spacing: -.02em; }
+    .tiny-label { color: #aebdd4; font-weight: 700; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; }
+    .workflow-list { display: grid; gap: .8rem; padding-top: 1.2rem; }
+    .workflow-step { display: grid; grid-template-columns: 39px 1fr 22px; align-items: center; gap: .85rem; background: rgba(255,255,255,.055); padding: .9rem; border-radius: 15px; }
+    .workflow-num { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: rgba(115,215,209,.15); color: var(--cyan); font-size: .75rem; font-weight: 900; }
+    .workflow-step strong { display: block; font-size: .91rem; }
+    .workflow-step small { display: block; color: #afbed5; font-size: .77rem; margin-top: .1rem; }
+    .check { color: var(--cyan); font-size: 1rem; }
+    .workflow-foot { color: #aebdd4; font-size: .8rem; margin: 1.15rem 0 0; }
+
+    section { padding-block: clamp(4rem, 7vw, 6.2rem); }
+    .section-head { max-width: 690px; margin-bottom: 2rem; }
+    .section-kicker { color: var(--blue); font-size: .75rem; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; margin-bottom: .65rem; }
+    h2 { font-size: clamp(2rem, 4.2vw, 3.05rem); line-height: 1.13; letter-spacing: -.05em; margin-bottom: .75rem; }
+    .section-intro { color: var(--muted); font-size: 1.03rem; max-width: 620px; margin-bottom: 0; }
+    .about-grid { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(260px,.8fr); gap: 1.15rem; }
+    .panel { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.4rem,3vw,2rem); box-shadow: var(--card-shadow); }
+    .panel p:last-child { margin-bottom: 0; }
+    .panel p { color: var(--muted); }
+    .panel h3 { margin-bottom: .65rem; font-size: 1.18rem; letter-spacing: -.025em; }
+    .value-list { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: .8rem; }
+    .value-list li { display: flex; align-items: flex-start; gap: .7rem; color: var(--muted); font-size: .94rem; }
+    .value-list li::before { content: "✓"; flex: 0 0 22px; height: 22px; display: grid; place-items: center; background: #e8f8f5; color: #16867c; font-size: .75rem; font-weight: 900; border-radius: 7px; margin-top: 2px; }
+    .personal-note { border-left: 3px solid var(--cyan); padding-left: 1rem; margin-top: 1.15rem; font-size: .9rem; color: #66738a; }
+
+    .projects { background: #edf2f9; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.2rem; }
+    .project-card { display: flex; flex-direction: column; min-height: 100%; overflow: hidden; background: white; border: 1px solid #dfe6f0; border-radius: 24px; box-shadow: 0 14px 38px rgba(20,32,57,.055); transition: transform .2s ease, box-shadow .2s ease; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 22px 48px rgba(20,32,57,.1); }
+    .project-icon { display: grid; place-items: center; width: 53px; height: 53px; border-radius: 17px; background: rgba(115,215,209,.16); border: 1px solid rgba(115,215,209,.23); color: var(--cyan); font-size: 1.4rem; font-weight: 900; }
+    .project-type { position: relative; z-index: 1; font-size: .73rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: #bed1f2; }
+    .project-body { display: flex; flex: 1; flex-direction: column; padding: 1.55rem; }
+    .project-body h3 { margin-bottom: .65rem; font-size: 1.35rem; line-height: 1.25; letter-spacing: -.035em; }
+    .project-body p { color: var(--muted); font-size: .94rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: .45rem; margin: .15rem 0 1.25rem; }
+    .tag { background: #f1f5fc; color: #435779; border: 1px solid #e0e8f5; border-radius: 999px; padding: .32rem .62rem; font-size: .72rem; font-weight: 800; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: auto; padding-top: .25rem; }
+    .text-link { display: inline-flex; align-items: center; gap: .35rem; text-decoration: none; color: #315fd0; font-weight: 850; font-size: .87rem; }
+    .text-link:hover { color: #183f9e; text-decoration: underline; text-underline-offset: 4px; }
+    .project-note { margin-top: 1.2rem; border-radius: 16px; background: #fff9e9; color: #66562d; padding: 1rem 1.1rem; border: 1px solid #f0e2b8; font-size: .88rem; }
+    .project-note strong { color: #4c3d17; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: .8rem; }
+    .skill-card { background: white; border: 1px solid var(--line); border-radius: 18px; padding: 1.1rem; min-height: 158px; }
+    .skill-symbol { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; background: #eef3ff; color: #315fd0; font-weight: 900; font-size: .88rem; margin-bottom: .9rem; }
+    .skill-card h3 { margin-bottom: .35rem; font-size: 1rem; }
+    .skill-card p { color: var(--muted); font-size: .82rem; line-height: 1.55; margin-bottom: 0; }
+    .learning-band { display: flex; align-items: center; justify-content: space-between; gap: 1.2rem; margin-top: 1.2rem; padding: 1.25rem 1.4rem; border-radius: 18px; background: var(--navy); color: white; }
+    .learning-band p { margin: 0; color: #c6d2e6; font-size: .92rem; }
+    .learning-band strong { display: block; margin-bottom: .2rem; }
+    .learning-badge { flex: 0 0 auto; background: rgba(115,215,209,.14); color: var(--cyan); border: 1px solid rgba(115,215,209,.2); border-radius: 999px; padding: .5rem .8rem; font-size: .75rem; font-weight: 850; }
+
+    .experience-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.1rem; }
+    .experience-card { padding: 1.45rem; background: white; border: 1px solid var(--line); border-radius: 20px; }
+    .experience-meta { color: var(--blue); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 900; margin-bottom: .55rem; }
+    .experience-card h3 { font-size: 1.05rem; margin-bottom: .35rem; }
+    .experience-card p { color: var(--muted); font-size: .9rem; margin-bottom: 0; }
+
+    .cert-card { display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 1.2rem; padding: 1.5rem; border: 1px solid var(--line); background: white; border-radius: 22px; box-shadow: var(--card-shadow); }
+    .cert-mark { display: grid; place-items: center; width: 62px; height: 62px; border-radius: 18px; background: #e9f1ff; color: #1558c7; font-weight: 900; font-size: .95rem; }
+    .cert-card h3 { margin-bottom: .25rem; font-size: 1.12rem; }
+    .cert-card p { margin-bottom: 0; color: var(--muted); font-size: .88rem; }
+    .cert-button { white-space: nowrap; }
+
+    .contact-section { background: var(--navy); color: white; }
+    .contact-grid { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 2rem; }
+    .contact-section .section-kicker { color: var(--cyan); }
+    .contact-section h2 { max-width: 650px; }
+    .contact-section .section-intro { color: #c4d0e4; }
+    .contact-links { display: flex; flex-direction: column; gap: .7rem; min-width: 230px; }
+    .contact-links a { display: flex; align-items: center; gap: .65rem; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; padding: .7rem .9rem; font-size: .87rem; font-weight: 750; }
+    .contact-links a:hover { border-color: var(--cyan); background: rgba(255,255,255,.06); }
+    footer { background: #0b1425; color: #aebbd0; padding-block: 1.35rem; font-size: .78rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .footer-inner p { margin: 0; }
+    .footer-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .footer-links a { text-decoration: none; }
+    .footer-links a:hover { color: var(--cyan); }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .workflow-card { max-width: 560px; transform: none; }
+      .skills-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .experience-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: .82rem; }
+    }
+    @media (max-width: 680px) {
+      .shell { width: min(100% - 28px, 560px); }
+      .nav-wrap { min-height: 68px; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 14px; right: 14px; padding: .7rem; flex-direction: column; align-items: stretch; gap: .2rem; background: white; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--card-shadow); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: .75rem .8rem; border-radius: 10px; font-size: .9rem; }
+      .nav-links a:hover { background: #f3f6fb; }
+      .nav-links .nav-cta { text-align: center; margin-top: .25rem; }
+      .hero-grid { padding-block: 3.8rem; }
+      h1 { font-size: clamp(2.65rem, 13vw, 4rem); }
+      .about-grid, .project-grid, .experience-grid, .contact-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .learning-band { align-items: flex-start; flex-direction: column; }
+      .cert-card { grid-template-columns: auto minmax(0,1fr); }
+      .cert-button { grid-column: 1 / -1; justify-self: start; }
+      .contact-links { min-width: 0; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+
+
+    /* Neon teal / black / white visual theme */
+    .site-header {
+      background: rgba(255, 255, 255, .94);
+      border-bottom-color: rgba(0, 245, 212, .28);
+    }
+    .brand-mark {
+      background: #050807;
+      color: #00f5d4;
+      border: 1px solid rgba(0, 245, 212, .55);
+      box-shadow: 0 0 0 3px rgba(0, 245, 212, .08), 0 8px 24px rgba(0, 20, 17, .16);
+      font-size: .72rem;
+    }
+    .brand-label { color: #050807; }
+    .brand-label small { color: #53635f; }
+    .nav-links a { color: #263b36; }
+    .nav-links a:hover { color: #007f70; }
+    .nav-links .nav-cta {
+      background: #050807;
+      color: #ffffff;
+      border: 1px solid #050807;
+    }
+    .nav-links .nav-cta:hover { background: #00f5d4; color: #050807; border-color: #00f5d4; }
+    .menu-toggle { border-color: #dce8e5; color: #050807; }
+
+    .hero h1 { font-size: clamp(2.7rem, 5.5vw, 4.65rem); }
+    .hero {
+      background:
+        radial-gradient(ellipse at 88% 12%, rgba(0, 245, 212, .18), transparent 31%),
+        radial-gradient(ellipse at 72% 98%, rgba(0, 245, 212, .09), transparent 30%),
+        #050807;
+      border-bottom: 1px solid rgba(0, 245, 212, .24);
+    }
+    .hero::after { border-color: rgba(0, 245, 212, .17); }
+    .eyebrow, h1 .accent { color: #00f5d4; }
+    .hero-copy { color: #d7e5e1; }
+    .hero-meta { color: #b6c7c2; }
+    .meta-dot { box-shadow: 0 0 12px rgba(0, 245, 212, .8); }
+    .button-primary {
+      background: #00f5d4;
+      color: #04100d;
+      border-color: #00f5d4;
+      box-shadow: 0 0 0 rgba(0, 245, 212, 0);
+    }
+    .button-primary:hover {
+      background: #70ffe9;
+      border-color: #70ffe9;
+      box-shadow: 0 0 24px rgba(0, 245, 212, .23);
+    }
+    .button-ghost { border-color: rgba(255, 255, 255, .28); }
+    .button-ghost:hover { border-color: #00f5d4; background: rgba(0, 245, 212, .08); }
+    .workflow-card { border-color: rgba(0, 245, 212, .23); box-shadow: 0 25px 80px rgba(0, 0, 0, .38); }
+    .workflow-card-head { border-bottom-color: rgba(0, 245, 212, .18); }
+    .workflow-step { background: rgba(0, 245, 212, .055); }
+    .workflow-num { background: rgba(0, 245, 212, .13); color: #00f5d4; }
+    .check { color: #00f5d4; }
+
+    .section-kicker { color: #007f70; }
+    .panel, .skill-card, .experience-card, .cert-card {
+      border-color: #dce8e5;
+      box-shadow: 0 14px 40px rgba(3, 18, 15, .055);
+    }
+    .value-list li::before { background: #d9fff7; color: #006a5b; }
+    .personal-note { color: #52625e; }
+
+    .projects {
+      background: #050807;
+      color: #ffffff;
+      border-top: 1px solid rgba(0, 245, 212, .16);
+      border-bottom: 1px solid rgba(0, 245, 212, .16);
+    }
+    .projects .section-kicker { color: #00f5d4; }
+    .projects .section-intro { color: #b9cbc6; }
+    .project-card {
+      border-color: rgba(0, 245, 212, .26);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, .28);
+    }
+    .project-card:hover {
+      border-color: rgba(0, 245, 212, .7);
+      box-shadow: 0 20px 55px rgba(0, 245, 212, .09);
+    }
+    .project-icon {
+      background: rgba(0, 245, 212, .12);
+      border-color: rgba(0, 245, 212, .38);
+      color: #00f5d4;
+      box-shadow: 0 0 24px rgba(0, 245, 212, .08);
+    }
+    .project-type { color: #9bf9eb; }
+    .tag { background: #e9fffa; color: #075b50; border-color: #c3fff3; }
+    .text-link { color: #007f70; }
+    .text-link:hover { color: #004d43; }
+    .projects .text-link { color: #007f70; }
+    .project-note {
+      background: #0c1714;
+      color: #d4e3df;
+      border-color: rgba(0, 245, 212, .23);
+    }
+    .project-note strong { color: #00f5d4; }
+
+    .skill-symbol {
+      background: #ddfff7;
+      color: #006e60;
+      border: 1px solid #a6fbea;
+    }
+    .learning-band {
+      background: #050807;
+      border: 1px solid rgba(0, 245, 212, .25);
+      box-shadow: 0 15px 38px rgba(0, 15, 12, .12);
+    }
+    .learning-band p { color: #c2d3ce; }
+    .learning-badge {
+      background: rgba(0, 245, 212, .1);
+      color: #00f5d4;
+      border-color: rgba(0, 245, 212, .35);
+    }
+    .experience-meta { color: #007f70; }
+    .cert-mark {
+      background: #ddfff7;
+      color: #006a5b;
+      border: 1px solid #a6fbea;
+    }
+    .contact-section {
+      background:
+        radial-gradient(ellipse at 88% 10%, rgba(0, 245, 212, .1), transparent 34%),
+        #050807;
+      border-top: 1px solid rgba(0, 245, 212, .22);
+    }
+    .contact-section .section-kicker { color: #00f5d4; }
+    .contact-section .section-intro { color: #c2d3ce; }
+    .contact-links a { border-color: rgba(0, 245, 212, .2); }
+    .contact-links a:hover { border-color: #00f5d4; background: rgba(0, 245, 212, .07); }
+    footer { background: #000302; color: #aebfba; border-top: 1px solid rgba(0, 245, 212, .17); }
+    .footer-links a:hover { color: #00f5d4; }
+
+    @media (max-width: 680px) {
+      .hero h1 { font-size: clamp(2.3rem, 10vw, 3.4rem); }
+      .brand-label { max-width: 220px; font-size: .82rem; }
+      .brand-label small { font-size: .68rem; }
+      .nav-links { background: #ffffff; border-color: #dce8e5; }
+      .nav-links a:hover { background: #eafffa; }
+    }
+
+
+    /* Refined teal, warm white and charcoal palette */
+    :root {
+      --ink: #152320;
+      --muted: #40534e;
+      --navy: #101b19;
+      --navy-2: #1a2a26;
+      --blue: #087f74;
+      --cyan: #2dd4bf;
+      --paper: #f7faf9;
+      --white: #ffffff;
+      --line: #d4e2de;
+      --card-shadow: 0 16px 38px rgba(13, 36, 31, .07);
+      --radius: 22px;
+    }
+    body {
+      background: #f7faf9;
+      color: #152320;
+      font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    h1, h2, h3, .brand-label { font-family: "Manrope", "DM Sans", ui-sans-serif, system-ui, sans-serif; }
+    h1, h2, h3 { color: inherit; }
+    .site-header {
+      background: rgba(248, 251, 250, .96);
+      border-bottom: 1px solid #d4e2de;
+    }
+    .brand-mark {
+      background: #101b19;
+      color: #2dd4bf;
+      border: 1px solid #087f74;
+      box-shadow: 0 7px 18px rgba(10, 43, 36, .14);
+    }
+    .brand-label { color: #152320; }
+    .brand-label small { color: #40534e; }
+    .nav-links a { color: #263b36; }
+    .nav-links a:hover { color: #087f74; }
+    .nav-links .nav-cta { background: #101b19; color: #fff; border: 1px solid #101b19; }
+    .nav-links .nav-cta:hover { background: #2dd4bf; color: #101b19; border-color: #2dd4bf; }
+    .menu-toggle { border-color: #d4e2de; color: #152320; }
+
+    .hero {
+      background:
+        radial-gradient(ellipse at 88% 10%, rgba(45, 212, 191, .18), transparent 32%),
+        radial-gradient(ellipse at 70% 100%, rgba(8, 127, 116, .16), transparent 35%),
+        #101b19;
+      border-bottom: 1px solid rgba(45, 212, 191, .26);
+    }
+    .hero::after { border-color: rgba(45, 212, 191, .19); }
+    .eyebrow, h1 .accent { color: #2dd4bf; }
+    .hero-copy { color: #e0ebe7; }
+    .hero-meta { color: #c1d1cc; }
+    .meta-dot { background: #2dd4bf; box-shadow: 0 0 10px rgba(45, 212, 191, .45); }
+    .button-primary { background: #2dd4bf; color: #10201d; border-color: #2dd4bf; }
+    .button-primary:hover { background: #77e7d8; border-color: #77e7d8; }
+    .button-ghost { color: #fff; border-color: rgba(255, 255, 255, .32); }
+    .button-ghost:hover { border-color: #2dd4bf; background: rgba(45, 212, 191, .09); }
+    .workflow-card { border-color: rgba(45, 212, 191, .26); box-shadow: 0 25px 70px rgba(0, 0, 0, .24); }
+    .workflow-card-head { border-bottom-color: rgba(45, 212, 191, .2); }
+    .tiny-label, .workflow-step small, .workflow-foot { color: #c0d0cb; }
+    .workflow-step { background: rgba(45, 212, 191, .065); }
+    .workflow-num { background: rgba(45, 212, 191, .15); color: #65e5d4; }
+    .check { color: #65e5d4; }
+
+    .section-kicker { color: #087f74; }
+    .section-intro { color: #40534e; }
+    .panel, .skill-card, .experience-card, .cert-card {
+      background: #fff;
+      border-color: #d4e2de;
+      box-shadow: 0 14px 36px rgba(13, 36, 31, .055);
+    }
+    .panel p, .value-list li, .project-body p, .skill-card p, .experience-card p, .cert-card p {
+      color: #40534e;
+    }
+    .panel h3, .project-body h3, .skill-card h3, .experience-card h3, .cert-card h3 { color: #152320; }
+    .value-list li::before { background: #d6f5ef; color: #076f64; }
+    .personal-note { color: #40534e; border-left-color: #0b9f91; }
+
+    /* Selected Work is text-first: no image blocks or decorative photo placeholders. */
+    .projects {
+      background: #eaf3f0;
+      color: #152320;
+      border-top: 1px solid #d4e2de;
+      border-bottom: 1px solid #d4e2de;
+    }
+    .projects .section-kicker { color: #087f74; }
+    .projects .section-intro { color: #40534e; }
+    .project-grid { align-items: stretch; }
+    .project-card {
+      background: #fff;
+      color: #152320;
+      border: 1px solid #cbded8;
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(16, 42, 36, .065);
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: #66cfc0;
+      box-shadow: 0 20px 40px rgba(8, 127, 116, .12);
+    }
+    .project-body { padding: clamp(1.4rem, 2.5vw, 1.9rem); }
+    .project-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .65rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 1.05rem;
+      border-bottom: 1px solid #dbe8e4;
+    }
+    .project-index {
+      display: inline-flex;
+      align-items: center;
+      background: #d9f5ef;
+      color: #086e63;
+      border: 1px solid #b9e9df;
+      border-radius: 999px;
+      padding: .3rem .65rem;
+      font-size: .69rem;
+      font-weight: 900;
+      letter-spacing: .09em;
+    }
+    .project-type { color: #087f74; font-size: .74rem; font-weight: 800; letter-spacing: .035em; }
+    .project-body h3 { font-size: clamp(1.3rem, 2vw, 1.55rem); letter-spacing: -.04em; }
+    .project-body p { color: #40534e; line-height: 1.75; }
+    .tag { background: #eef8f5; color: #244c45; border-color: #d3e9e3; }
+    .text-link, .projects .text-link { color: #086f64; }
+    .text-link:hover, .projects .text-link:hover { color: #064c45; }
+    .project-note { background: #dff4ef; color: #264640; border-color: #c2e5dc; }
+    .project-note strong { color: #075e55; }
+
+    .skill-symbol { background: #d9f5ef; color: #086e63; border: 1px solid #b9e9df; }
+    .learning-band { background: #101b19; border: 1px solid rgba(45, 212, 191, .28); }
+    .learning-band p { color: #d2e0dc; }
+    .learning-badge { background: rgba(45, 212, 191, .12); color: #65e5d4; border-color: rgba(45, 212, 191, .35); }
+    .experience-meta { color: #087f74; }
+    .cert-mark { background: #d9f5ef; color: #086e63; border: 1px solid #b9e9df; }
+
+    .contact-section {
+      background:
+        radial-gradient(ellipse at 88% 10%, rgba(45, 212, 191, .12), transparent 34%),
+        #101b19;
+      border-top: 1px solid rgba(45, 212, 191, .23);
+    }
+    .contact-section .section-kicker { color: #65e5d4; }
+    .contact-section .section-intro { color: #d2e0dc; }
+    .contact-links a { color: #fff; border-color: rgba(45, 212, 191, .26); }
+    .contact-links a:hover { border-color: #2dd4bf; background: rgba(45, 212, 191, .08); }
+    footer { background: #0a1210; color: #d0dcd8; border-top: 1px solid rgba(45, 212, 191, .17); }
+    .footer-links a:hover { color: #65e5d4; }
+    a:focus-visible, button:focus-visible { outline-color: #0b9f91; }
+
+    @media (max-width: 680px) {
+      .nav-links { background: #fff; border-color: #d4e2de; }
+      .nav-links a:hover { background: #eaf7f3; }
+      .project-topline { align-items: flex-start; }
+      .project-type { padding-top: .2rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="Vhelaphi George Maluleke home">
+        <span class="brand-mark">VGM</span>
+        <span class="brand-label">Vhelaphi George Maluleke<small>Data Analytics Portfolio</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#learning">Learning</a>
+        <a class="nav-cta" href="#contact">Get in touch ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Junior Data Analyst · Portfolio</p>
+          <h1>Vhelaphi George<br><span class="accent">Maluleke.</span></h1>
+          <p class="hero-copy">I'm a self-taught junior data analyst building practical experience through projects in Power BI, SQL, Excel and Python. I enjoy making information easier to explore, checking the details, and presenting what the data actually shows.</p>
+          <div class="hero-meta"><span>Cape Town, South Africa</span><span class="meta-dot" aria-hidden="true"></span><span>Open to junior data analytics opportunities</span></div>
+          <div class="button-row">
+            <a class="button button-primary" href="#projects">Explore my projects <span aria-hidden="true">↓</span></a>
+            <a class="button button-ghost" href="assets/george-maluleke-cv.pdf" target="_blank" rel="noopener">View my CV <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <aside class="workflow-card" aria-label="My approach to analysis">
+          <div class="workflow-card-head">
+            <div><span class="tiny-label">My approach</span><br><strong>From data to a clear story</strong></div>
+            <span class="project-icon" aria-hidden="true">↗</span>
+          </div>
+          <div class="workflow-list">
+            <div class="workflow-step"><span class="workflow-num">01</span><span><strong>Check the data</strong><small>Look for gaps and inconsistencies</small></span><span class="check" aria-hidden="true">✓</span></div>
+            <div class="workflow-step"><span class="workflow-num">02</span><span><strong>Explore the question</strong><small>Use the right fields and measures</small></span><span class="check" aria-hidden="true">✓</span></div>
+            <div class="workflow-step"><span class="workflow-num">03</span><span><strong>Explain what it shows</strong><small>Keep the message clear and honest</small></span><span class="check" aria-hidden="true">✓</span></div>
+          </div>
+          <p class="workflow-foot">Still learning, testing, and improving with every project.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">A little about me</p>
+          <h2>Practical experience. Curious mindset.</h2>
+          <p class="section-intro">I'm building my way into data analytics through hands-on projects and steady technical learning.</p>
+        </div>
+        <div class="about-grid">
+          <article class="panel">
+            <h3>Why analytics?</h3>
+            <p>Before focusing on analytics, I worked in administration and healthcare support. My work included patient bookings, record keeping, data capture, spreadsheet tracking and file checks. It taught me how important accuracy, confidentiality and organised information are.</p>
+            <p>I'm now building on that experience with data tools. My portfolio is a place to practise, learn from mistakes, and get better at turning a business question into a report someone can understand.</p>
+            <p class="personal-note">Outside of analytics, I enjoy video games, reading and spending time with friends.</p>
+          </article>
+          <aside class="panel">
+            <h3>What I'm working towards</h3>
+            <p>I want to grow into a dependable analyst who can prepare data carefully, build useful reports, explain findings clearly and keep learning from feedback.</p>
+            <ul class="value-list">
+              <li>Clear, practical reporting</li>
+              <li>Careful checks before trusting a number</li>
+              <li>Learning through real portfolio projects</li>
+              <li>Recommendations supported by evidence</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">Selected work</p>
+          <h2>Projects I'm building and learning from.</h2>
+          <p class="section-intro">Both dashboards use healthcare examples to practise visual reporting. Open the reports to explore them, or visit the repositories for the project notes.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-body">
+              <div class="project-topline"><span class="project-index">PROJECT 01</span><span class="project-type">Power BI · Healthcare</span></div>
+              <h3>Patient Visits Analysis</h3>
+              <p>A Power BI report built around patient visit records. This project gives me practice structuring a healthcare dashboard and exploring how visit, patient and code fields are represented in the data.</p>
+              <div class="tags"><span class="tag">Power BI</span><span class="tag">Data visualisation</span><span class="tag">Data quality</span></div>
+              <div class="project-links">
+                <a class="text-link" href="https://app.powerbi.com/view?r=eyJrIjoiM2FhNTJiZTYtMWQxMy00MDM3LWE0MjItNTY2NjliZTAwMWU5IiwidCI6ImVhMjk1OTFmLWRkZjItNDI3OS1hZmY3LTYxODdjMWI3MDBlZiJ9" target="_blank" rel="noopener">Open dashboard ↗</a>
+                <a class="text-link" href="https://github.com/georgem135/georgem135portfolio" target="_blank" rel="noopener">Project notes ↗</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-body">
+              <div class="project-topline"><span class="project-index">PROJECT 02</span><span class="project-type">Power BI · Healthcare</span></div>
+              <h3>Hospital Emergency Room Analysis</h3>
+              <p>An interactive report focused on hospital emergency room data. I'm using it to practise presenting operational data visually and to keep improving how I document measures and findings.</p>
+              <div class="tags"><span class="tag">Power BI</span><span class="tag">Dashboard design</span><span class="tag">Healthcare data</span></div>
+              <div class="project-links">
+                <a class="text-link" href="https://app.powerbi.com/view?r=eyJrIjoiYThkNThmMDctOWYxZS00NWNlLWFiMWEtNmYyOTFiZGJjZGMwIiwidCI6ImVhMjk1OTFmLWRkZjItNDI3OS1hZmY3LTYxODdjMWI3MDBlZiJ9" target="_blank" rel="noopener">Open dashboard ↗</a>
+                <a class="text-link" href="https://github.com/georgem135/georgem135portfolio2" target="_blank" rel="noopener">Project notes ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="project-note"><strong>A note on my process:</strong> I'm learning to document data sources, validate measures and explain limitations alongside the visuals. I want the numbers in my projects to be understandable and defensible, not just presentable.</div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">Tools & skills</p>
+          <h2>The toolkit I'm developing.</h2>
+          <p class="section-intro">These are the tools I'm using in my learning and portfolio work. I'm continuing to build confidence through practice rather than rating myself as an expert.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card"><div class="skill-symbol">BI</div><h3>Power BI</h3><p>Interactive reports and data visualisation.</p></article>
+          <article class="skill-card"><div class="skill-symbol">SQL</div><h3>SQL</h3><p>Querying data and developing analytical techniques.</p></article>
+          <article class="skill-card"><div class="skill-symbol">XLS</div><h3>Excel</h3><p>Spreadsheet analysis, lookups, PivotTables and charts.</p></article>
+          <article class="skill-card"><div class="skill-symbol">Py</div><h3>Python</h3><p>Building programming and data analysis skills.</p></article>
+          <article class="skill-card"><div class="skill-symbol">DAX</div><h3>DAX</h3><p>Learning calculations and measures for Power BI.</p></article>
+        </div>
+        <div class="learning-band" id="learning">
+          <div><strong>What I'm learning next</strong><p>Currently working through intermediate-to-advanced SQL and DAX topics, with more practice in data modelling, measures and analytical queries.</p></div>
+          <span class="learning-badge">Learning in progress</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">Experience that carries over</p>
+          <h2>Skills beyond the dashboard.</h2>
+          <p class="section-intro">My previous roles weren't data analyst jobs, but they gave me useful habits that I bring into this career change.</p>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card">
+            <p class="experience-meta">Healthcare administration · 2024–2025</p>
+            <h3>Executive Assistant / Administrator</h3>
+            <p>Supported patient bookings, medical administration, record keeping, file audits and tracking outstanding items in a healthcare setting. This experience strengthened my attention to detail and respect for confidentiality.</p>
+          </article>
+          <article class="experience-card">
+            <p class="experience-meta">Operations & record keeping · 2022–2024</p>
+            <h3>Poultry Farm Assistant</h3>
+            <p>Maintained stock sheets and routine logs while supporting day-to-day operations. It reinforced the value of consistent records and checking information carefully.</p>
+          </article>
+          <article class="experience-card">
+            <p class="experience-meta">Freelance · 2023</p>
+            <h3>WordPress Web Support</h3>
+            <p>Updated website content, images, contact details and navigation for small-business clients. This experience gave me practice organising digital information and communicating with clients remotely.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certification">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">Professional development</p>
+          <h2>Learning that continues outside projects.</h2>
+        </div>
+        <article class="cert-card">
+          <div class="cert-mark" aria-hidden="true">G/AI</div>
+          <div>
+            <h3>Google AI Essentials Specialization</h3>
+            <p>Coursera · Completed May 2026 · <a class="text-link" href="https://www.coursera.org/account/accomplishments/specialization/KBG66SN04I4M" target="_blank" rel="noopener">View certificate ↗</a></p>
+          </div>
+          <a class="button button-primary cert-button" href="https://www.coursera.org/account/accomplishments/specialization/KBG66SN04I4M" target="_blank" rel="noopener">Verify certificate ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="shell contact-grid">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2>Let's connect.</h2>
+          <p class="section-intro">I'm building my portfolio and looking for opportunities to learn, contribute and grow in a junior data analytics role.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:vhelaphigeorgemaluleke@gmail.com"><span aria-hidden="true">✉</span> vhelaphigeorgemaluleke@gmail.com</a>
+          <a href="https://www.linkedin.com/in/vhelaphi-maluleke" target="_blank" rel="noopener"><span aria-hidden="true">in</span> LinkedIn profile ↗</a>
+          <a href="https://github.com/georgem135" target="_blank" rel="noopener"><span aria-hidden="true">⌘</span> GitHub profile ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <p>© <span id="year">2026</span> Vhelaphi George Maluleke. Built with HTML and CSS.</p>
+      <div class="footer-links">
+        <a href="https://github.com/georgem135" target="_blank" rel="noopener">GitHub profile</a>
+        <a href="https://github.com/georgem135/georgem135portfolio" target="_blank" rel="noopener">Portfolio repo</a>
+        <a href="https://github.com/georgem135/georgem135portfolio2" target="_blank" rel="noopener">Portfolio repo 2</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('#nav-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      menuButton.textContent = isOpen ? '×' : '☰';
+    });
+    navigation.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navigation.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation menu');
+        menuButton.textContent = '☰';
+      });
+    });
+    document.querySelector('#year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
