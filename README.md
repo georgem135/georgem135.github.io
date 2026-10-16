@@ -6,7 +6,6 @@ A responsive one-page portfolio website built with plain HTML, CSS, and a small 
 
 - `index.html` — website structure, styling, and mobile navigation
 - `assets/favicon.svg` — matching VGM favicon in neon teal, black, and white
-- `assets/george-maluleke-cv.pdf` — CV linked from the website
 
 ## Publish with GitHub Pages
 
